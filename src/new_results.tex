@@ -3,13 +3,43 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[english]{babel}
+\usepackage{amsmath, amssymb, amsthm, stmaryrd}
 
-\title{Extending result for an arbitrary set of generations}
+\newcommand{\G}{\mathbb{G}}
+
+\newtheorem{theorem}{Theorem}
+
+\title{Extending results for an arbitrary set of generations}
 \author{}
 
 \begin{document}
 
 \maketitle
+
+\section{Notations}
+
+We denote by $\G$ the set of generations, and $Y$ the set of utility values.\\
+The set of utility streams is $X=Y^\G$.\\
+We take $\kappa$ and $\mu$ two cardinal numbers such that $\kappa,\mu\leq|\G|$.
+
+\section{Axioms}
+
+We define the $\kappa$-relation as:
+\[<_\kappa = \{(x,y)\in X^2|\forall i\in \G, x_i \leq y_i \land \kappa \leq
+|\{j \in \G | x_j < y_j\}|\}\]
+
+\textbf{$\kappa$-Pareto}:
+\[\forall x,y\in X, x <_\kappa y \Rightarrow x \prec y\]
+We define the set of $\mu$-permutations on a set $E$ as:
+\[\mu\mathfrak{S}_E = \{\sigma\in\mathfrak{S}_E | |\{e\in E|e\neq \sigma(e)\}|\leq \mu\}\]
+
+\textbf{$\mu$-anonymity}:
+\[\forall\sigma\in\mu\mathfrak{S}_\G,\forall x\in X, x \sim \sigma x\]
+
+\section{Grading principle}
+\ \par
+\textbf{$\kappa$-$\mu$ grading principle}:
+\[R_{\kappa\mu} = \{(x,y)\in X^2 | \exists\sigma\in\mu\mathfrak{S}_\G, x <_\kappa \sigma y\}\]
 
 \bibliographystyle{alpha}
 \bibliography{bibliography}

@@ -3,14 +3,42 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[english]{babel}
+\usepackage{amsmath, amssymb, amsthm, stmaryrd}
 
 \title{Summary of the results seen in the Intergenerational Equity workshop}
 \author{}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
 
 \begin{document}
 
 \maketitle
 
+\section{Grading principle}
+
+From \cite{svensson80}:
+
+\begin{definition}[Grading principle $R_S$]
+    For all $x,y\in X$, $x R_S y$ iff there exists $\sigma\in\mathfrak{S}_{\mathbb{N}}$ finite
+    such that $x\geq\sigma y$.
+\end{definition}
+
+\begin{theorem}
+    $R_S$ is a paretian and anonymous quasi-ordering on $X$.
+\end{theorem}
+
+From Szpilrajn [TODO : citation]:
+\begin{lemma}
+    For every quasi-ordering $R$ in a set $S$, there is an ordering $S$ compatible with $R$.
+\end{lemma}
+
+\begin{theorem}
+    To any quasi-ordering $R$ in $X$ such that the grading principle $R_S$ is a subrelation of
+    $R'$, there is a paretian and anonymous order $R$ over $X$ such that $R'$ is a subrelation
+    of $R$.
+\end{theorem}
 \bibliographystyle{alpha}
 \bibliography{bibliography}
 \end{document}

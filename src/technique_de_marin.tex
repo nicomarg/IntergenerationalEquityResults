@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb, amsthm, stmaryrd}
+
+\newcommand{\G}{\mathbb{G}}
+
+\newtheorem{theorem}{Theorem}
+
+\title{Extending results for an arbitrary set of generations}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\section{Notations}
+
+$\G$ is the set of generations. \\
+$Y$ is the ordered set of utility values. It is not an antichain.\\
+The set of utility streams is $X=Y^\G$.\\
+$\Kappa$ is a non-empty family of subsets of $\G$, stable by union and which doesn't contain $\emptyset$. \\
+$\Mu$ is a subgroup of $\mathfrak{S}_\G$.
+
+\section{Axioms}
+
+We define the $\Kappa$-relation as:
+\[<_\Kappa = \{(x,y)\in X^2|\forall i\in \G, x_i \leq y_i \land \{j \in \G | x_j < y_j\}\in\Kappa\}\]
+$<_\Kappa$ is antireflexive since $\emptyset\not\in\Kappa$, and transitive since $\Kappa$ is stable by union. Therefore it is a strict order.
+And $\leq_\Kappa$ the reflexive closure of $<_\Kappa$.\smallskip\par
+
+\textbf{$\Kappa$-Pareto}:
+\[\forall x,y\in X, x <_\Kappa y \Rightarrow x \prec y\]
+
+\textbf{$\Mu$-anonymity}:
+\[\forall\sigma\in\Mu,\forall x\in X, x \sim \sigma x\]
+
+\section{Grading principle}
+\ \par
+\textbf{$\kappa$-$\mu$ grading principle}:
+\[R_{\Kappa\Mu} = \{(x,y)\in X^2 | \exists\sigma\in\Mu, x \leq_\kappa \sigma y\}\]
+
+Adaptation of theorem 1 in \cite{svensson80}:
+\begin{theorem}
+    $R_{\Kappa\Mu}$ is a $\Mu$-anonymous quasi-ordering on $X$, and $\Kappa$-paretian if...
+\end{theorem}
+\begin{proof}
+    \textbf{Reflexivity}: we can take $\sigma = Id\in\Kappa$ since $\Kappa$ is a subgroup of $\mathfrak{S}_\G.\\
+    \textbf{Transitivity}: if $x,y,z\in X$ such that $x R_{\kappa\mu} y$ and $y R_{\kappa\mu} z$,
+    we take $\sigma,\sigma'\in \Mu$ such that $x\leq_\kappa \sigma y$ and
+    $y\leq_\kappa \sigma' z$. We have $x\leq_\kappa (\sigma\circ\sigma')z$,
+    and $\sigma\circ\sigma'\in\Mu$ since $\sigma$ and $\sigma'$ are both in $\Mu$.\\
+    \textbf{$\Mu$-anonymity}: if $x\in X$ and $\sigma\in\Mu$, then $x\leq_\Kappa\sigma^{-1}\sigma x with $\sigma^{-1}\in\Mu, therefore $x R_{\Kappa,\Mu} \sigma x. On the other hand, $\sigma x \leq_{Kappa}\sigma x$, hence $x \sim_{\Kappa, \Mu}\sigma x\\
+    \textbf{$\kappa$-Pareto}: if we have $x,y\in X$ with $x<_\kappa y$, is there a
+    $\sigma\in \mu\mathfrak{S}_\G$ such that $y\leq_\kappa \sigma x$? 
+\end{proof}
+
+\bibliographystyle{alpha}
+\bibliography{bibliography}
+\end{document}

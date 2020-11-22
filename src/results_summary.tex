@@ -7,6 +7,7 @@
 
 \title{Summary of the results seen in the Intergenerational Equity workshop}
 \author{}
+\date{}
 
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
@@ -16,29 +17,92 @@
 
 \maketitle
 
+\section{Notations}
+
+We denote by $Y$ the set of utility values, and $X=Y^{\mathbb{N}}$ the set of
+utility streams.\par
+Given a utility stream $x$ and an integer $i$, $x_i$ is the $i^\text{th}$
+generation of $x$.\par
+We define the following relations on streams: if $x,y\in X$,
+\begin{itemize}
+    \item $x \leq y \Leftrightarrow \forall i \in \mathbb{N},
+        x_i\leq y_i$
+    \item $x < y \Leftrightarrow x \leq y \land x \neq y$
+    \item $x \ll y \Leftrightarrow \forall i \in \mathbb{N},
+        x_i < y_i$
+\end{itemize}\par
+A Social Welfare Relation (SWR) is a preorder on streams. We note such a relation
+$\precsim$, with $\prec$ its asymmetric part and $\sim$ its symmetric part.\par
+A Social Welfare Order (SWO) is a complete SWR.\par
+We define the notion of subrelation between two SWR $\precsim$ and $\precsim'$
+the following way: $\precsim$ is a subrelation of $\precsim'$ iff 
+$\sim\subseteq\sim'$ and $\prec\subseteq\prec'$. In this case, we also say that
+$\precsim'$ is an extension of $\precsim$, and an ordering extension if
+$\precsim'$ is a SWO.\par
+A SWR $\precsim$ is \emph{continuous} in some topology iff forall $x\in X$,
+$\{y\in X|y\precsim x\}$ and $\{y\in X|x\precsim y\}$ are closed in that
+topology.
+
+
 \section{Grading principle}
 
-From \cite{svensson80}:
-
-\begin{definition}[Grading principle $R_S$]
-    For all $x,y\in X$, $x R_S y$ iff there exists $\sigma\in\mathfrak{S}_{\mathbb{N}}$ finite
+From \cite{svensson80}:\bigskip\\
+In this section, $Y=[0,1]$.
+\begin{definition}[Grading principle $\precsim_S$]
+    For all $x,y\in X$, $x \precsim_S y$ iff there exists
+    $\sigma\in\mathfrak{S}_{\mathbb{N}}$ finite
     such that $x\geq\sigma y$.
 \end{definition}
 
 \begin{theorem}
-    $R_S$ is a paretian and anonymous quasi-ordering on $X$.
+    $\precsim_S$ is a paretian and anonymous quasi-ordering on $X$.
 \end{theorem}
 
-From Szpilrajn [TODO : citation]:
-\begin{lemma}
-    For every quasi-ordering $R$ in a set $S$, there is an ordering $S$ compatible with $R$.
+\begin{lemma}[from \cite{szpilrajn30}]
+    For every preorder $\precsim$ on a set $S$, there is an order on
+    $S$ compatible with $\precsim$.
 \end{lemma}
 
 \begin{theorem}
-    To any quasi-ordering $R$ in $X$ such that the grading principle $R_S$ is a subrelation of
-    $R'$, there is a paretian and anonymous order $R$ over $X$ such that $R'$ is a subrelation
-    of $R$.
+    For any extension $\precsim'$ of the grading principle 
+    $\precsim_S$, there is a paretian
+    and anonymous ordering extension $\precsim$ of $\precsim'$.
 \end{theorem}
+
+
+\section{Overtaking criterion}
+
+From \cite{svensson80}:\bigskip\\
+In this section, $Y=[0,1]$.
+
+\begin{definition}[Overtaking criterion $\precsim_W$]
+    For all $x,y\in X$, $x \precsim_W y$ iff there exists
+    $n_0\in\mathbb{N}$ such that for all $n\geq n_0$,
+    $\sum_{k=1}^n (x_k - y_k)\geq 0$.
+\end{definition}
+
+\begin{theorem}
+    There exist paretian and anonymous extensions of $\precsim_W$.
+\end{theorem}
+
+
+\section{Continuous preferences}
+In this section, $Y=[0,1]$.
+\smallskip\\
+From \cite{diamond65}:
+\bigskip\\
+From \cite{svensson80}:\smallskip\par
+We consider sequences of streams $(x^n)\in X^\mathbb{N}$, and say that
+$(x^n)$ converges to $x\in X$ if and only if
+\[\sum_{k=1}^\infty |x^n_k - x_k| \underset{n\rightarrow\infty}{\rightarrow}0\]
+Additionally, we have the following distance $d$:
+\[d(x,y)=\min\left(1,\sum_{k=1}^\infty |x_k - y_k|\right)\]
+which gives us a topology $T$.
+
+\begin{theorem}
+    There are continuous, paretian and anonymous SWR wrt. T. 
+\end{theorem}
+
 \bibliographystyle{alpha}
 \bibliography{bibliography}
 \end{document}

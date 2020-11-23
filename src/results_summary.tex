@@ -20,9 +20,9 @@
 \section{Notations and definitions}
 
 We denote by $Y$ the set of utility values, and $X=Y^{\mathbb{N}}$ the set of
-utility streams.\par
+utility streams.\smallskip\\
 Given a utility stream $x$ and an integer $i$, $x_i$ is the $i^\text{th}$
-generation of $x$.\par
+generation of $x$.\smallskip\\
 We define the following relations on streams: if $x,y\in X$,
 \begin{itemize}
     \item $x \leq y \Leftrightarrow \forall i \in \mathbb{N},
@@ -31,34 +31,56 @@ We define the following relations on streams: if $x,y\in X$,
     \item $x \ll y \Leftrightarrow \forall i \in \mathbb{N},
         x_i < y_i$
 \end{itemize}\par
-A Social Welfare Relation (SWR) is a preorder on streams. We note such a relation
-$\precsim$, with $\prec$ its asymmetric part and $\sim$ its symmetric part.\par
-A Social Welfare Order (SWO) is a complete SWR.\par
-We define the notion of subrelation between two SWR $\precsim$ and $\precsim'$
+
+\begin{definition}[Social Welfare Relation (SWR)]
+  A Social Welfare Relation is a preorder on streams. We note such a relation
+$\precsim$, with $\prec$ its asymmetric part and $\sim$ its symmetric part.
+\end{definition}
+
+\begin{definition}[Social Welfare Order (SWO)]
+  A Social Welfare Order (SWO) is a complete SWR.
+\end{definition}
+
+\begin{definition}[subrelation, extension]
+  We define the notion of subrelation between two SWR $\precsim$ and $\precsim'$
 the following way: $\precsim$ is a subrelation of $\precsim'$ iff 
 $\sim\subseteq\sim'$ and $\prec\subseteq\prec'$. In this case, we also say that
 $\precsim'$ is an extension of $\precsim$, and an ordering extension if
-$\precsim'$ is a SWO.\par
-A SWR $\precsim$ is \emph{continuous} in some topology iff forall $x\in X$,
+$\precsim'$ is a SWO.
+\end{definition}
+
+\begin{definition}[continuous SWR]
+  A SWR $\precsim$ is continuous in some topology iff forall $x\in X$,
 $\{y\in X|y\precsim x\}$ and $\{y\in X|x\precsim y\}$ are closed in that
 topology.
-
+\end{definition}
 
 \begin{definition}[Social Welfare Function (SWF)]
   A Social Welfare Function is a function from a set of utility streams to the real numbers.
 \end{definition}
+
+\begin{definition}[(Strong) Pareto axiom for SWR]
+  Let $x$ and $y$ be utility streams and $\precsim$ be a SWR.
+  If $x < y$ then $x\prec y$.
+\end{definition}
+
+\begin{definition}[(Weak) Pareto axiom for SWR]
+  Let $x$ and $y$ be utility streams and $\precsim$ be a SWR.
+  If $x \ll y$ then $x\prec y$.
+\end{definition}
+
 
 \begin{definition}[(Finite) Anonymity axiom]
   Let $x$ and $y$ be utility streams and $W$ be a SWF.
   If $\exists n_0 \in\mathbb N,x_0=y_n$, $x_n=y_0$ and $\forall n\notin\{0,n_0\}, x_n=y_n$, then $W(x)=W(y)$.
 \end{definition}
 
-\begin{definition}[Pareto axiom]
+\begin{definition}[Pareto axiom for SWF]
   Let $x$ and $y$ be utility streams and $W$ be a SWF.
-  If $\forall n \in\mathbb N,x_n<y_n$ then $W(x)<W(y)$.
+  If $x\ll y$ then $W(x)<W(y)$.
 \end{definition}
 
-\begin{definition}[Weak Pareto axiom]
+\begin{definition}[Weak Pareto axiom for SWF]
   Let $x$ and $y$ be utility streams and $W$ be a SWF.
   If $\exists n_0\in\mathbb N, x_{n_0}<y_{n_0}$ and $\forall n\neq n_0, x_n=y_n$ then $W(x)<W(y)$.
   If $x\ll y$ then $W(x)< W(y)$.
@@ -70,53 +92,62 @@ topology.
   If $x\ll y$ then $W(x)\leq W(y)$.
 \end{definition}
 
+
 \section{Grading principle}
 
-From \cite{svensson80}:\bigskip\\
 In this section, $Y=[0,1]$.
+\smallskip\\
+From \cite{svensson80}:
 \begin{definition}[Grading principle $\precsim_S$]
-    For all $x,y\in X$, $x \precsim_S y$ iff there exists
-    $\sigma\in\mathfrak{S}_{\mathbb{N}}$ finite
-    such that $x\geq\sigma y$.
+  For all $x,y\in X$, $x \precsim_S y$ iff there exists
+  $\sigma\in\mathfrak{S}_{\mathbb{N}}$ finite
+  such that $x\geq\sigma y$.
 \end{definition}
 
 \begin{theorem}
-    $\precsim_S$ is a paretian and anonymous quasi-ordering on $X$.
+  $\precsim_S$ is a paretian and anonymous quasi-ordering on $X$.
 \end{theorem}
 
 \begin{lemma}[from \cite{szpilrajn30}]
-    For every preorder $\precsim$ on a set $S$, there is an order on
-    $S$ compatible with $\precsim$.
+  For every preorder $\precsim$ on a set $S$, there is an order on
+  $S$ compatible with $\precsim$.
 \end{lemma}
 
 \begin{theorem}
-    For any extension $\precsim'$ of the grading principle 
-    $\precsim_S$, there is a paretian
-    and anonymous ordering extension $\precsim$ of $\precsim'$.
+  For any extension $\precsim'$ of the grading principle 
+  $\precsim_S$, there is a paretian
+  and anonymous ordering extension $\precsim$ of $\precsim'$.
 \end{theorem}
 
 
 \section{Overtaking criterion}
-
-From \cite{svensson80}:\bigskip\\
 In this section, $Y=[0,1]$.
-
+\smallskip\\
+From \cite{svensson80}:
 \begin{definition}[Overtaking criterion $\precsim_W$]
-    For all $x,y\in X$, $x \precsim_W y$ iff there exists
-    $n_0\in\mathbb{N}$ such that for all $n\geq n_0$,
-    $\sum_{k=1}^n (x_k - y_k)\geq 0$.
+  For all $x,y\in X$, $x \precsim_W y$ iff there exists
+  $n_0\in\mathbb{N}$ such that for all $n\geq n_0$,
+  $\sum_{k=1}^n (x_k - y_k)\geq 0$.
 \end{definition}
 
 \begin{theorem}
-    There exist paretian and anonymous extensions of $\precsim_W$.
+  There exist paretian and anonymous extensions of $\precsim_W$.
 \end{theorem}
 
 
 \section{Continuous preferences}
 In this section, $Y=[0,1]$.
 \smallskip\\
-From \cite{diamond65}:
-\bigskip\\
+From \cite{diamond65}:\smallskip\par
+We define two metrics:
+\begin{definition}[Sup metric]
+  \[d(x,y)=\sup_k |x_k - y_k|\]
+\end{definition}
+\begin{definition}[Product metric]
+  \[d(x,y)=\sum_{k=1}^\infty 2^{-k}|x_k - y_k|\]
+\end{definition}
+
+\bigskip
 From \cite{svensson80}:\smallskip\par
 We consider sequences of streams $(x^n)\in X^\mathbb{N}$, and say that
 $(x^n)$ converges to $x\in X$ if and only if

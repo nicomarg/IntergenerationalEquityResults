@@ -17,7 +17,7 @@
 
 \maketitle
 
-\section{Notations}
+\section{Notations and definitions}
 
 We denote by $Y$ the set of utility values, and $X=Y^{\mathbb{N}}$ the set of
 utility streams.\par
@@ -43,6 +43,32 @@ A SWR $\precsim$ is \emph{continuous} in some topology iff forall $x\in X$,
 $\{y\in X|y\precsim x\}$ and $\{y\in X|x\precsim y\}$ are closed in that
 topology.
 
+
+\begin{definition}[Social Welfare Function (SWF)]
+  A Social Welfare Function is a function from a set of utility streams to the real numbers.
+\end{definition}
+
+\begin{definition}[(Finite) Anonymity axiom]
+  Let $x$ and $y$ be utility streams and $W$ be a SWF.
+  If $\exists n_0 \in\mathbb N,x_0=y_n$, $x_n=y_0$ and $\forall n\notin\{0,n_0\}, x_n=y_n$, then $W(x)=W(y)$.
+\end{definition}
+
+\begin{definition}[Pareto axiom]
+  Let $x$ and $y$ be utility streams and $W$ be a SWF.
+  If $\forall n \in\mathbb N,x_n<y_n$ then $W(x)<W(y)$.
+\end{definition}
+
+\begin{definition}[Weak Pareto axiom]
+  Let $x$ and $y$ be utility streams and $W$ be a SWF.
+  If $\exists n_0\in\mathbb N, x_{n_0}<y_{n_0}$ and $\forall n\neq n_0, x_n=y_n$ then $W(x)<W(y)$.
+  If $x\ll y$ then $W(x)< W(y)$.
+\end{definition}
+
+\begin{definition}[Dominance axiom]
+  Let $x$ and $y$ be utility streams and $W$ be a SWF.
+  If $\exists n_0\in\mathbb N, x_{n_0}<y_{n_0}$ and $\forall n\neq n_0, x_n=y_n$ then $W(x)<W(y)$.
+  If $x\ll y$ then $W(x)\leq W(y)$.
+\end{definition}
 
 \section{Grading principle}
 
@@ -107,40 +133,15 @@ which gives us a topology $T$.
 
 From \cite{basumitra03}:
 
-\begin{definition}[Social Welfare Function (SWF)]
-  A Social Welfare Function is a function from a set of utility streams to the real numbers.
-\end{definition}
-
-\begin{definition}[Pareto axiom]
-  Let $x$ and $y$ be utility streams and $W$ be a SWF.
-  If $\forall n \in\mathbb N,x_n<y_n$ then $W(x)<W(y)$.
-\end{definition}
-
-\begin{definition}[Anonymity axiom]
-  Let $x$ and $y$ be utility streams and $W$ be a SWF.
-  If $\exists n_0 \in\mathbb N,x_0=y_n$, $x_n=y_0$ and $\forall n\notin\{0,n_0\}, x_n=y_n$, then $W(x)=W(y)$.
-\end{definition}
-
 \begin{theorem}
   There is no SWF satifying both Pareto and Anonymity axioms.
 \end{theorem}
-
-\begin{definition}[Dominance axiom]
-  Let $x$ and $y$ be utility streams and $W$ be a SWF.
-  If $\exists n_0\in\mathbb N, x_{n_0}<y_{n_0}$ and $\forall n\neq n_0, x_n=y_n$ then $W(x)<W(y)$.
-  If $x\ll y$ then $W(x)\leq W(y)$.
-\end{definition}
 
 \begin{theorem}
   If $Y=[0,1]$, there is no SWF satifying both Dominance and Anonymity axioms.
 \end{theorem}
 
 From \cite{basumitra07p}:
-\begin{definition}[Weak Pareto axiom]
-  Let $x$ and $y$ be utility streams and $W$ be a SWF.
-  If $\exists n_0\in\mathbb N, x_{n_0}<y_{n_0}$ and $\forall n\neq n_0, x_n=y_n$ then $W(x)<W(y)$.
-  If $x\ll y$ then $W(x)< W(y)$.
-\end{definition}
 
 \begin{theorem}
   If $Y\subset\mathbb N$, there exists a SWF satisfying both Weak Pareto and Anonymity axioms.

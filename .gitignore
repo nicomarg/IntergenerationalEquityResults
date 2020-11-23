@@ -11,3 +11,4 @@ pdf/
 *.synctex.gz
 *.prv
 *.fmt
+_region_.tex

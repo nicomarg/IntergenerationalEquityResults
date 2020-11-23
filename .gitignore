@@ -9,3 +9,5 @@ pdf/
 *.log
 *.pdf
 *.synctex.gz
+*.prv
+*.fmt

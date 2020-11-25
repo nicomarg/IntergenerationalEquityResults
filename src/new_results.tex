@@ -74,7 +74,7 @@ Adaptation of theorem 1 in \cite{svensson80}:
 
 Adaptation of theorem 1 of \cite{basumitra03}:
 \begin{theorem}
-  There is no SWF satisfying $\kappa$-Pareto and $\mu$-anonymity axioms if $\kappa$ contains a subset $k$ of $\mathbb G$ such that $\mathbb G\setminus k$ is at least countable, $|\mathbb G|\geq |k|$ and $\mu$ contains permutations of size $|k|$.
+  There is no SWF satisfying $\kappa$-Pareto and $\mu$-anonymity axioms if $\kappa$ contains a subset $k$ of $\mathbb G$ such that $\mathbb G\setminus k$ is infinite, $|\mathbb G\setminus k|\geq |k|$ and $\mu$ contains the permutations of size $|k|$.
 \end{theorem}
 
 Recall of the proof in \cite{basumitra03} : we say that $0$ and $1$ are in $Y$ and create for each real $0<z<1$ two utility streams $a(z)$ and $b(z)$ in $\{0,1\}^{\mathbb N}$ such that $b(z)$ is bigger than $a(z)$ by only one bit and that $a(z')$ is bigger than $a(z)$ by infinitely many bits when $z'>z$, so that we can swap 2 bits to compare $b(z')$ to $a(z)$ to say it is smaller and that all the $[W(a(z)),W(b(z))]$ are disjoint and non empty.
@@ -85,19 +85,26 @@ Recall of the proof in \cite{basumitra03} : we say that $0$ and $1$ are in $Y$ a
   Let:
   \begin{itemize}
   \item $k\in\kappa$ satisfying the conditions
-  \item $f$ be a surjection of $\mathbb G\setminus k$ in $\mathbb Q\,\cap\,]0,1[$
+  \item $s$ be a bijection of $G\setminus k$ in $(G\setminus k)\times (Q\,\cap\,]0,1[)$
+  \item $\pi_2$ be the projection of $(G\setminus k)\times (Q\,\cap\,]0,1[)$ in $\mathbb Q\,\cap\,]0,1[$
+  \item $f=\pi_2\circ s:\mathbb G\setminus k\to\mathbb Q\,\cap\,]0,1[$
   \item $E(z)=\{g\in \mathbb G\setminus k\,|\, f(g)<z\}$ for $0<z<1$
   \item $\displaystyle a(z)=\left(\left\{\begin{array}{ll}1&\text{if }g\in E(z)\\0&\text{else}\end{array}\right.\right)_{g\in\mathbb G}$ for $0<z<1$
   \item $\displaystyle b(z)=\left(\left\{\begin{array}{ll}1&\text{if }g\in k\\a(z)&\text{else}\end{array}\right.\right)_{g\in\mathbb G}$ for $0<z<1$.
   \end{itemize}
 
-  Therefore $\forall g\in k, a(z)_g=0$ and $b(z)_g=1$, so $a(z)<_\kappa b(z)$.
+  Therefore $\forall g\in k, a(z)_g=0$ and $b(z)_g=1$, so $a(z)<_\kappa b(z)$. \\
 
   Let $0<z<z'<1$.
 
   We are going to create two permutation $\sigma_1,\sigma_2\in\mu$ such as $\sigma_1 b(z)<_\kappa \sigma_2 a(z')$.
 
-  If we have that $\forall 0<z<z'<1,|E(z')\setminus E(z)|\geq |k|$ (and I think we can construct $f$ so that it is verified if $|k|\leq|\mathbb G|$) then because $E(z')\setminus E(z)$ is infinite we can divide it in two sets $e_1$ and $e_2$ of same cardinality. Thenthere is an injection $\iota_1$ from $k$ to $e_1$ and $\iota_2$ from $k$ to $e_2$. Define $\sigma_i$ as $\underset{g\in k}{\text{\LARGE $\circ$}}\tau(g,(\iota_i(g))$.
+  Since there is a rational $z<r<z'$,
+  \[\forall g\in \mathbb G\setminus k, \pi_2(g,r)\in]z,z'[,\]
+  so $|\pi_2^{-1}(]z,z'[)|\geq|G\setminus k|$. And because $s$ is a bijection,
+  \[|\pi_2^{-1}(]z,z'[)|=|s^{-1}(\pi_2^{-1}(]z,z'[))|= |f^{-1}(]z,z'[)|.\]
+
+  Therefore $|E(z')\setminus E(z)|\geq|G\setminus k|\geq |k|$, then because $E(z')\setminus E(z)$ is infinite we can divide it in two sets $e_1$ and $e_2$ of same cardinality. Then there are injection $\iota_i$ from $k$ to $e_i$. Define $\sigma_i$ as $\underset{g\in k}{\text{\LARGE $\circ$}}\tau(g,(\iota_i(g))$. \\
 
   Let $g\in\mathbb G$.
 
@@ -111,7 +118,7 @@ Recall of the proof in \cite{basumitra03} : we say that $0$ and $1$ are in $Y$ a
   \[(\sigma_1 b(z))_g=b(z)_{\underset{=g \notin E(z)\cup k}{\underbrace{\sigma_1^{-1}(g)}}}=0=(\sigma_2 a(z'))_g=a(z')_{\underset{\in k}{\underbrace{\sigma_2^{-1}(g)}}}.\]
 
   Else
-  \[(\sigma_1 b(z))_g=a(z)_g\leq (\sigma_2 a(z'))_g=a(z')_g.\]
+  \[(\sigma_1 b(z))_g=a(z)_g\leq (\sigma_2 a(z'))_g=a(z')_g.\] \\
 
   Hence $\sigma_1b(z)<_\kappa \sigma_2a(z')$, so by $\kappa$-Pareto $W(\sigma_1b(z))<W(\sigma_2a(z'))$.
 

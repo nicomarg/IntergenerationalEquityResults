@@ -4,6 +4,7 @@
 \usepackage{lmodern}
 \usepackage[english]{babel}
 \usepackage{amsmath, amssymb, amsthm, stmaryrd}
+\usepackage{tikz}
 
 \newcommand{\G}{\mathbb{G}}
 
@@ -96,8 +97,8 @@ $[W(a(z)),W(b(z))]$ are disjoint and non empty.
   \begin{itemize}
   \item $k\in\kappa$ satisfying the conditions
   \item $s$ be a bijection of $G\setminus k$ in $(G\setminus k)\times
-        (Q\,\cap\,]0,1[)$
-  \item $\pi_2$ be the projection of $(G\setminus k)\times (Q\,\cap\,]0,1[)$
+        (\mathbb Q\,\cap\,]0,1[)$
+  \item $\pi_2$ be the projection of $(G\setminus k)\times (\mathbb Q\,\cap\,]0,1[)$
         in $\mathbb Q\,\cap\,]0,1[$
   \item $f=\pi_2\circ s:\mathbb G\setminus k\to\mathbb Q\,\cap\,]0,1[$
   \item $E(z)=\{g\in \mathbb G\setminus k\,|\, f(g)<z\}$ for $0<z<1$
@@ -107,9 +108,56 @@ $[W(a(z)),W(b(z))]$ are disjoint and non empty.
         k\\a(z)&\text{else}\end{array}\right.\right)_{g\in\mathbb G}$ for $0<z<1$.
   \end{itemize}
 
-  Therefore $\forall g\in k, a(z)_g=0$ and $b(z)_g=1$, so $a(z)<_\kappa b(z)$. \\
+  Therefore $\forall g\in k, a(z)_g=0$ and $b(z)_g=1$, so $a(z)<_\kappa b(z)$.
+
+  \begin{center}
+    \begin{tikzpicture}
+      \foreach \x/\lettre/\dansk in {0/a/0, 6/b/1} {
+        \node[left]       (\lettre) at (\x-2,0) {$\lettre(z)$ :};
+        \draw[thick]      (\x,0) ellipse (2 and 1.5);
+        \node[below]      (G\x) at (\x,-1.5) {$\mathbb G$};
+        \draw[thick]      (\x-1,1.3) arc (-180:0:1 and 0.8);
+        \node[above right](k\x) at (\x,0.5) {$k$};
+        \path[thick]      (\x,0.5) edge (\x,-1.5);
+        \node[above left] (Ez\x) at (\x,-1.5) {$E(z)$};
+        \node             (1\x) at (\x-1,0) {\LARGE{1}};
+        \node             (0\x) at (\x+1,0) {\LARGE{0}};
+        \node             (\dansk\x) at (\x,1) {\LARGE{\dansk}};
+      }
+    \end{tikzpicture}
+  \end{center}
 
   Let $0<z<z'<1$.
+
+  We want to show that $W(b(z))<W(a(z'))$.
+
+  \begin{center}
+    \begin{tikzpicture}
+      % b(z)
+      \node[left]       (bz) at (0-2,0) {$b(z)$ :};
+      \draw[thick]      (0,0) ellipse (2 and 1.5);
+      \node[below]      (G0) at (0,-1.5) {$\mathbb G$};
+      \draw[thick]      (0-1,1.3) arc (-180:0:1 and 0.8);
+      \node[above right](k0) at (0,0.5) {$k$};
+      \path[thick]      (-0.5,0.6) edge (-0.5,-1.45);
+      \node[above left] (Ez0) at (-0.5,-1.25) {$E(z)$};
+      \node             (1b) at (-1,0) {\LARGE{1}};
+      \node             (0b) at (0.7,0) {\LARGE{0}};
+      \node             (1b) at (0,1) {\LARGE{1}};
+
+      % a(z')
+      \node[left]       (az) at (6-2,0) {$a(z')$ :};
+      \draw[thick]      (6,0) ellipse (2 and 1.5);
+      \node[below]      (G6) at (6,-1.5) {$\mathbb G$};
+      \draw[thick]      (6-1,1.3) arc (-180:0:1 and 0.8);
+      \node[above right](k6) at (6,0.5) {$k$};
+      \path[thick]      (6.5,0.6) edge (6.5,-1.45);
+      \node[above left] (Ez6) at (6.5,-1.5) {$E(z')$};
+      \node             (16) at (6-0.7,0) {\LARGE{1}};
+      \node             (06) at (6+1,0) {\LARGE{0}};
+      \node             (06) at (6,1) {\LARGE{0}};
+    \end{tikzpicture}
+  \end{center}
 
   We are going to create two permutation $\sigma_1,\sigma_2\in\mu$ such as
   $\sigma_1 b(z)<_\kappa \sigma_2 a(z')$.
@@ -123,7 +171,53 @@ $[W(a(z)),W(b(z))]$ are disjoint and non empty.
   $E(z')\setminus E(z)$ is infinite we can divide it in two sets $e_1$ and
   $e_2$ of same cardinality. Then there are injection $\iota_i$ from $k$ to
   $e_i$. Define $\sigma_i$ as $\underset{g\in k}{\text{\LARGE $\circ$}}
-  \tau(g,(\iota_i(g))$. \\
+  \tau(g,(\iota_i(g))$.
+
+  \begin{center}
+    \begin{tikzpicture}
+      \foreach \x/\noeud/\k/\e/\s in {0/b(z)/1/0/1, 6/a(z')/0/1/2} {
+        \node[left]       (bz) at (\x-2,0) {$\noeud$ :};
+        \draw[thick]      (\x,0) ellipse (2 and 1.5);
+        \node[below]      (G0) at (\x,-1.5) {$\mathbb G$};
+        \draw[thick]      (\x-1,1.3) arc (-180:0:1 and 0.8);
+        \node[above right](k0) at (\x,0.5) {$k$};
+        \path[thick]      (\x-.5,0.6) edge (\x-.5,-1.45);
+        \path[thick]      (\x+0.5,0.6) edge (\x+0.5,-1.45);
+        \path[thick]      (\x+0.5,-0.425) edge (\x-.5,-0.425);
+        \node[above left] (Ez) at (\x-0.5,-1.25) {$E(z)$};
+        \node[above left] (te1) at (\x+.5,-0.425) {$e_1$};
+        \node[above left] (te2) at (\x+.5,-1.45) {$e_2$};
+        \node             (1Ez) at (\x-1.2,0) {\LARGE{1}};
+        \node             (0G) at (\x+1.2,0) {\LARGE{0}};
+        \node             (e1) at (\x,0.1) {\LARGE{\e}};
+        \node             (e2) at (\x,-0.9) {\LARGE{\e}};
+        \node             (k) at (\x,1) {\LARGE{\k}};
+        \path[<->, thick] (e\s.west) edge [bend left] node[left=-2*\e] {$\sigma_{\s}$} (k.west);
+      }
+    \end{tikzpicture}
+  \end{center}
+  \begin{center}
+    \begin{tikzpicture}
+      \foreach \x/\noeud/\k in {0/\sigma_1b(z)/0, 6/\sigma_2a(z')/1} {
+        \node[left]       (bz) at (\x-2,0) {$\noeud$ :};
+        \draw[thick]      (\x,0) ellipse (2 and 1.5);
+        \node[below]      (G0) at (\x,-1.5) {$\mathbb G$};
+        \draw[thick]      (\x-1,1.3) arc (-180:0:1 and 0.8);
+        \node[above right](k0) at (\x,0.5) {$k$};
+        \path[thick]      (\x-.5,0.6) edge (\x-.5,-1.45);
+        \path[thick]      (\x+0.5,0.6) edge (\x+0.5,-1.45);
+        \path[thick]      (\x+0.5,-0.425) edge (\x-.5,-0.425);
+        \node[above left] (Ez) at (\x-0.5,-1.25) {$E(z)$};
+        \node[above left] (e1) at (\x+.5,-0.425) {$e_1$};
+        \node[above left] (e2) at (\x+.5,-1.45) {$e_2$};
+        \node             (1) at (\x-1.2,0) {\LARGE{1}};
+        \node             (0) at (\x+1.2,0) {\LARGE{0}};
+        \node             (1) at (\x,0.1) {\LARGE{1}};
+        \node             (0) at (\x,-0.9) {\LARGE{0}};
+        \node             (1) at (\x,1) {\LARGE{\k}};
+      }
+    \end{tikzpicture}
+  \end{center}
 
   Let $g\in\mathbb G$.
 

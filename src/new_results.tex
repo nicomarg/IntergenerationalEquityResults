@@ -29,8 +29,14 @@ $\mu$ is a subgroup of $\mathfrak{S}_\G$.
 We define the $\kappa$-relation as:
 \[<_\kappa = \{(x,y)\in X^2|\forall i\in \G, x_i \leq y_i \land
 \{j \in \G | x_j < y_j\}\in\kappa\}\]
-$<_\kappa$ is irreflexive since $\emptyset\not\in\kappa$,
-and transitive since $\kappa$ is stable by union. Therefore it is a strict order.\\
+$<_\kappa$ is a strict order:
+\begin{itemize}
+  \item Irreflexive since $\emptyset\not\in\kappa$.
+  \item Asymmetric because $x<_\kappa y$ implies that for all $i\in\G$,
+        $x_i\leq y_i$, and there exists $j$ such that $x_j < y_j$. Hence
+        it is not possible to have $x<_\kappa y$ and $y<_\kappa x$.
+  \item Transitive since $\kappa$ is stable by union.
+\end{itemize}
 We note $\leq_\kappa$ the reflexive closure of $<_\kappa$.\smallskip\par
 
 \textbf{$\kappa$-Pareto}:

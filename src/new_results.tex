@@ -46,6 +46,8 @@ We note $\leq_\kappa$ the reflexive closure of $<_\kappa$.\smallskip\par
 \textbf{$\mu$-anonymity}:
 \[\forall\sigma\in\mu,\forall x\in X, x \sim \sigma x\]
 
+These two axioms can be extended as usual over social welfare functions.
+
 \section{Grading principle}
 \ \par
 \textbf{$\kappa$-$\mu$ grading principle}:
@@ -192,7 +194,7 @@ $[W(a(z)),W(b(z))]$ are disjoint and non empty.
 
   Therefore $|E(z')\setminus E(z)|\geq|G\setminus k|\geq |k|$, then because
   $E(z')\setminus E(z)$ is infinite we can divide it in two sets $e_1$ and
-  $e_2$ of same cardinality. Then there are injection $\iota_i$ from $k$ to
+  $e_2$ of same cardinality. Then there are two injections $\iota_i$ from $k$ to
   $e_i$. Define $\sigma_i$ as $\underset{g\in k}{\text{\LARGE $\circ$}}
   \tau(g,(\iota_i(g))$.
 
@@ -249,9 +251,10 @@ $[W(a(z)),W(b(z))]$ are disjoint and non empty.
   $W(\sigma_1b(z))=W(b(z))$ and $W(\sigma_2a(z'))=W(a(z'))$.
 
   So $W(b(z))<W(a(z'))$, so $[W(a(z)),W(b(z))]$ and $[W(a(z')),W(b(z'))]$
-  are disjoint and non empty (since $a(z)<_\kappa b(z)$), so to each real
-  we can associate a unique non empty disjoint interval. That is absurd because
-  those intervals would be countable.
+  are disjoint and not reduced to one element (since $a(z)<_\kappa b(z)$), so to each real
+  we can associate a unique and disjoint interval which is not a singleton. That is absurd because
+  we could then associate a rational to each interval (by choosing one in the interval),
+  thus those intervals would be countable.
 
 \end{proof}
 

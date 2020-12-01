@@ -79,9 +79,11 @@ Adaptation of theorem 1 in \cite{svensson80}:
 
 Adaptation of theorem 1 of \cite{basumitra03}:
 \begin{theorem}
-  There is no SWF satisfying $\kappa$-Pareto and $\mu$-anonymity axioms if $\kappa$
-  contains a subset $k$ of $\mathbb G$ such that $\mathbb G\setminus k$ is infinite,
-  $|\mathbb G\setminus k|\geq |k|$ and $\mu$ contains the permutations of size $|k|$.
+  Suppose $\kappa$ contains a subset $k$ of $\mathbb G$ such that $\mathbb G\setminus k$ is infinite, $|\mathbb G\setminus k|\geq |k|$ and $\mu$ contains the permutations of size $|k|$.
+
+  Let $\mathbb S$ be an totally ordered set such as there exists a subset $\mathbb D$ dense in $\mathbb S$ such that $|\mathbb D|\leq |\mathbb G\setminus k|$ and $|\mathbb D|<|\mathbb S|$.
+
+  There is no SWF satisfying $\kappa$-Pareto and $\mu$-anonymity axioms.
 \end{theorem}
 
 Recall of the proof in \cite{basumitra03} : we say that $0$ and $1$ are in $Y$ and
@@ -95,19 +97,21 @@ $[W(a(z)),W(b(z))]$ are disjoint and non empty.
   We assume that $Y$ contains at least two elements that we identify wlog. to $0$
   and $1$ (else there is only one possible utility stream).
 
+  Let $\alpha<\beta\in\mathbb S$. Denote by $]\alpha,\beta[$ the set $\{z\in\mathbb S\,|\, \alpha<z<\beta\}$.
+
   Let:
   \begin{itemize}
   \item $k\in\kappa$ satisfying the conditions
-  \item $s$ be a bijection of $G\setminus k$ in $(G\setminus k)\times
-        (\mathbb Q\,\cap\,]0,1[)$
-  \item $\pi_2$ be the projection of $(G\setminus k)\times (\mathbb Q\,\cap\,]0,1[)$
-        in $\mathbb Q\,\cap\,]0,1[$
-  \item $f=\pi_2\circ s:\mathbb G\setminus k\to\mathbb Q\,\cap\,]0,1[$
-  \item $E(z)=\{g\in \mathbb G\setminus k\,|\, f(g)<z\}$ for $0<z<1$
+  \item $s$ be a bijection of $\mathbb G\setminus k$ in $(\mathbb G\setminus k)\times
+        (\mathbb D\,\cap\,]\alpha,\beta[)$
+  \item $\pi_2$ be the projection of $(\mathbb G\setminus k)\times (\mathbb D\,\cap\,]\alpha,\beta[)$
+        in $\mathbb D\,\cap\,]\alpha,\beta[$
+  \item $f=\pi_2\circ s:\mathbb G\setminus k\to\mathbb D\,\cap\,]\alpha,\beta[$
+  \item $E(z)=\{g\in \mathbb G\setminus k\,|\, f(g)<z\}$ for $\alpha<z<\beta$
   \item $\displaystyle a(z)=\left(\left\{\begin{array}{ll}1&\text{if }g\in
-        E(z)\\0&\text{else}\end{array}\right.\right)_{g\in\mathbb G}$ for $0<z<1$
+        E(z)\\0&\text{else}\end{array}\right.\right)_{g\in\mathbb G}$ for $\alpha<z<\beta$
   \item $\displaystyle b(z)=\left(\left\{\begin{array}{ll}1&\text{if }g\in
-        k\\a(z)&\text{else}\end{array}\right.\right)_{g\in\mathbb G}$ for $0<z<1$.
+        k\\a(z)&\text{else}\end{array}\right.\right)_{g\in\mathbb G}$ for $\alpha<z<\beta$.
   \end{itemize}
 
   Therefore $\forall g\in k, a(z)_g=0$ and $b(z)_g=1$, so $a(z)<_\kappa b(z)$.
@@ -129,7 +133,7 @@ $[W(a(z)),W(b(z))]$ are disjoint and non empty.
     \end{tikzpicture}
   \end{center}
 
-  Let $0<z<z'<1$.
+  Let $\alpha<z<z'<\beta$.
 
   We want to show that $W(b(z))<W(a(z'))$.
 
@@ -175,7 +179,8 @@ $[W(a(z)),W(b(z))]$ are disjoint and non empty.
         \path[thick]      (\x-.5,0.6) edge (\x-.5,-1.45);
         \path[thick]      (\x+0.5,0.6) edge (\x+0.5,-1.45);
         \path[thick]      (\x+0.5,-0.425) edge (\x-.5,-0.425);
-        \node[above left] (Ez) at (\x-0.5,-1.25) {$E(z)$};        \node[above left] (e1) at (\x+.5,-0.425) {$e_1$};
+        \node[above left] (Ez) at (\x-0.5,-1.25) {$E(z)$};
+        \node[above left] (e1) at (\x+.5,-0.425) {$e_1$};
         \node[above left] (e2) at (\x+.5,-1.45) {$e_2$};
         \node             (1Ez) at (\x-1.2,0) {\LARGE{1}};
         \node             (0G) at (\x+1.2,0) {\LARGE{0}};
@@ -253,9 +258,8 @@ $[W(a(z)),W(b(z))]$ are disjoint and non empty.
   So $W(b(z))<W(a(z'))$, so $[W(a(z)),W(b(z))]$ and $[W(a(z')),W(b(z'))]$
   are disjoint and not reduced to one element (since $a(z)<_\kappa b(z)$), so to each real
   we can associate a unique and disjoint interval which is not a singleton. That is absurd because
-  we could then associate a rational to each interval (by choosing one in the interval),
-  thus those intervals would be countable.
-
+  we could then associate an element of $\mathbb D$ to each interval (by choosing one in the interval, by density),
+  contradicting the strict inequality of the cardinals of $\mathbb S$ and $\mathbb D$.
 \end{proof}
 
 

@@ -1,4 +1,4 @@
-FILES=results_summary new_results
+FILES=results_summary new_results caracterisation
 OUTDIR=pdf/
 SRCDIR=src/
 TARGETS=$(addprefix $(OUTDIR),$(addsuffix .pdf,$(FILES)))

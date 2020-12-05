@@ -1,0 +1,318 @@
+
+\documentclass[11pt]{article}
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{QED}
+
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{observation}[definition]{Observation}
+\newtheorem{claim}[definition]{Claim}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\releq}{\mathrel{\trianglelefteq}}
+\newcommand{\rel}{\mathrel{\triangleleft}}
+
+
+
+\usepackage{anysize}
+\marginsize{2.5cm}{2.5cm}{2.5cm}{2.5cm}
+
+\pagestyle{plain}
+
+
+\title{An abstract characterization result on axiomatic intergenerational equity (DRAFT)}
+
+\begin{document}
+\maketitle
+
+
+Let $G$ be a set, $\kappa$ be a collection of subsets of $G$, and $\mu$ be a collection of permutations of $G$.
+
+
+\begin{definition}
+ For all $A,B \subseteq G$, let $A < B$ if $A \subseteq B$ and $B \setminus A \in \kappa$. Let $\leq$ be the reflexive closure of $<$.
+\end{definition}
+
+
+
+\begin{lemma}\label{lem:so}
+\begin{enumerate}
+ \item\label{lem:so1} $<$ is irreflexive iff $\neg(\emptyset \in \kappa)$.
+ 
+ \item\label{lem:so2} If $\kappa$ is closed under disjoint union of any two sets, $<$ is transitive.
+ 
+ \item\label{lem:so3} If $<$ is transitive and $\neg(\emptyset \in \kappa)$, then $\kappa$ is closed under disjoint union of any two sets.
+ 
+ \item\label{lem:so4} $<$ is a strict order iff $\neg(\emptyset \in \kappa)$ and $\kappa$ is closed under disjoint union of any two sets.
+\end{enumerate}
+
+\begin{proof}
+ \begin{enumerate}
+  \item If $\neg(\emptyset \in \kappa)$, for all $A \subseteq G$ we have $\neg(A \setminus A \in \kappa)$, i.e. $\neg(A < A)$. Conversely, if $<$ is irreflexive, $\neg (G < G)$, and $\emptyset = G \setminus G$ is thus not in $\kappa$.
+  
+   
+  \item Let $A,B,C \in G$ be such that $A < B < C$. So by definition of $<$, we have $A \subseteq B \subseteq C$, and $B \setminus A, C \setminus B \in \kappa$. Since $B \setminus A$ and $C \setminus B$ are disjoint, $C \setminus A = (B \setminus A) \cup (C \setminus B) \in \kappa$.
+  
+  \item Let $A,B \in \kappa$ be disjoint.  On the one hand, $\emptyset < A$ since $A \neq \emptyset$; on the other hand, $A < A \cup B$ since $(A \cup B) \setminus A = B \in \kappa$. So $\emptyset < B$ by transitivity, so $B \in \kappa$.
+  
+  \item By Lemmas~\ref{lem:so}.\ref{lem:so1}, \ref{lem:so}.\ref{lem:so2}, and \ref{lem:so}.\ref{lem:so3}
+ \end{enumerate}
+\end{proof}
+\end{lemma}
+
+
+
+
+
+
+
+\begin{definition}
+For all $A,B \subseteq G$, let $A \releq B$ if there exists $\sigma \in \mu$ such that $A \leq \sigma B$. Let $A \sim B$ stand for $A \releq B \land B \releq A$, and $A \rel B$ for $A \releq B \land \neg(B \releq A)$.
+\end{definition}
+
+
+\begin{lemma}\label{lem:pref-basics}
+\begin{enumerate}
+
+ \item\label{lem:pref-basics1} If $\mu$ is empty, so is $\releq$. 
+ 
+ \item\label{lem:pref-basics2} $\rel$ is irreflexive, and $\sim$ is symmetric.
+
+ \item\label{lem:pref-basics3} $\releq$ is reflexive iff $\sim$ is reflexive, iff $\forall A \subseteq G, \exists \sigma \in \mu,\, A \leq \sigma A$.
+ 
+ \item\label{lem:pref-basics4} If $\releq$ is transitive, so is $\sim$.
+ 
+ \item\label{lem:pref-basics5} If $\releq$ is reflexive and transitive, $\sim$ is an equivalence relation.
+ 
+  \item\label{lem:pref-basics6} $\forall A \subseteq G, \forall \sigma \in \mu,\, \sigma A \releq A$.
+  
+    \item\label{lem:pref-basics7} $\forall A,B \subseteq G, A \sim B \,\Rightarrow\, A \sim A$.
+\end{enumerate}
+
+\begin{proof}
+ \begin{enumerate}
+ \item Clear.
+ 
+  \item Clear.
+  
+  \item That $\releq$ is reflexive iff $\sim$ is reflexive is clear from the definitions. Moreover, that $\releq$ is reflexive iff $\forall A \subseteq G, \exists \sigma \in \mu,\, A \leq \sigma A$ is just an unfolding of the definition of $\releq$.
+  
+  \item Clear.
+  
+  \item By Lemmas~\ref{lem:pref-basics}.\ref{lem:pref-basics2}, 
+ \ref{lem:pref-basics}.\ref{lem:pref-basics3} ,and \ref{lem:pref-basics}.\ref{lem:pref-basics4}.
+ 
+ \item It is witnessed by $\sigma$ since $\sigma A = \sigma A$.
+ 
+ \item By symmetry $B \sim A$, so $A \sim A$ by transitivity.
+ \end{enumerate}
+\end{proof}
+\end{lemma}
+
+
+
+\begin{remark}
+The property $\forall A \subseteq G, \exists \sigma \in \mu,\, A \leq \sigma A$ does not imply $\mathrm{id}_G \in \mu$. TODO give an example.
+\end{remark}
+
+
+\begin{definition}
+ $\releq$ is said to be anonymous if $A \sim \sigma A$ for all $A \subseteq G$ and $\sigma \in \mu$.
+\end{definition}
+
+
+\begin{lemma}\label{lem:ano-trans}
+\begin{enumerate}
+ \item\label{lem:ano-trans1} If $\releq$ is anonymous, $A \sim \sigma^{-1}A$ for all $A \subseteq G$ and $\sigma \in \mu$
+
+ \item\label{lem:ano-trans2} If $\rel$ is anonymous and transitive, it is also reflexive iff $\mu$ is non-empty.  
+ 
+  \item\label{lem:ano-trans3} Anonymity and transitivity of $\releq$ implies that for all $A, B \subseteq G$ and $\alpha_1,\dots,\alpha_n,\beta_1,\dots, \beta_m \in \mu \cup \mu^{-1}$ (where $\mu^{-1} := \{\sigma^{-1} \mid \sigma \in \mu\}$), if $A \releq B$ then $\prod_{i =1}^n \alpha_i A \releq \prod_{j =1}^m \beta_j B$.
+ 
+ \item\label{lem:ano-trans4} Anonymity and transitivity of $\releq$ implies that for all $A \subseteq G$ and $\alpha_1,\dots,\alpha_n,\beta_1,\dots, \beta_m \in \mu \cup \mu^{-1}$, if $A \sim A$ or $1 \leq n+m$, then $\prod_{i =1}^n \alpha_i A \sim \prod_{j =1}^m \beta_j A$.
+ 
+
+\end{enumerate}
+ \begin{proof}
+\begin{enumerate}
+ \item By applying anonymity to $\sigma^{-1}A$ and $\sigma$, we obtain $\sigma^{-1}A \sim \sigma \sigma^{-1}A$, so $\sigma^{-1}A \sim A$.
+ 
+ \item If $\releq$ is reflexive, it is non empty, and so is $\mu$ by Lemma~\ref{lem:pref-basics}.\ref{lem:pref-basics1}. Conversely, let $\sigma \in \mu$, so $A \sim \sigma A$ by anonymity, $\sigma \sim \sigma A$ by symmetry (Lemma~\ref{lem:pref-basics}.\ref{lem:pref-basics2}), and $A \sim A$ by transitivity.
+ 
+ \item By assumption $A \releq B$. By anonymity $B \sim \sigma B$, so $A \releq \sigma B$ by transitivity. By Lemma~\ref{lem:ano-trans}.\ref{lem:ano-trans2} $B \sim \sigma^{-1} B$, so $A \releq \sigma^{-1} B$ by transitivity. Likewise $\sigma A \releq B$ and $\sigma^{-1} A \releq B$. The claim follows by recurrence on $n+m$. 
+ 
+ \item 
+\end{enumerate}
+\end{proof}
+ 
+\end{lemma}
+
+
+
+\begin{definition}
+$\releq$ is said to be Pareto if $A < B \,\Rightarrow\, \neg (B \releq A)$. 
+\end{definition}
+
+
+
+\begin{lemma}\label{lem:pareto}
+\begin{enumerate}
+ \item\label{lem:pareto1} Pareto + anonymous implies $\neg(A < \sigma A)$ and $\neg(\sigma A < A)$
+
+  \item\label{lem:pareto2} Pareto + anonymous + reflexive implies $\exists \sigma \in \mu, A = \sigma A$.
+ 
+ 
+
+ \item\label{lem:pareto3} Pareto + anonymity + reflexivity + transitivity implies $\neg(\prod_{i =1}^n \alpha_i A < \prod_{j =1}^m \beta_j A)$.
+ 
+ 
+  \item\label{lem:pareto4} Pareto + anonymity + transitivity implies that if $A < B$ there exists $\sigma \in \mu$ such that $\prod_{i =1}^n \alpha_i A < \sigma \prod_{j =1}^m \beta_j B$.
+ 
+ \item\label{lem:pareto5} Pareto + anonymity + reflexivity + transitivity implies that there exists $\sigma \in \mu$ such that $\prod_{i =1}^n \alpha_i A = \sigma \prod_{j =1}^m \beta_j A$.
+ 
+ 
+ \item\label{lem:pareto6} If $\releq$ is Pareto, reflexive, and transitive, the following are equivalent.
+  \begin{enumerate}
+   \item $\releq$ is anonymous.
+   
+   \item $\forall A \subseteq G, \forall \sigma \in \mu, \exists \tau \in \mu, \, A = \tau \sigma A$ 
+   
+   \item $\forall A \subseteq G, \forall \alpha_1,\dots,\alpha_n,\beta_1,\dots, \beta_m \in \mu \cup \mu^{-1}, \exists \sigma \in \mu, \, \prod_{i =1}^n \alpha_i A = \sigma \prod_{j =1}^m \beta_j A$
+  \end{enumerate}
+\end{enumerate}
+
+\begin{proof}
+ \begin{enumerate}
+  \item Let us assume that $A < \sigma A$. So $\neg ( \sigma A \releq A)$ by Pareto assumption. On the other hand, $\sigma A \sim A$ by anonymity, so $\sigma A \releq A$, which is absurd. Similarly, $\neg(A \releq \sigma A)$.
+  
+  \item By the lemma above.
+  
+ 
+  \item By Lemma~\ref{lem:ano-trans}.\ref{lem:ano-trans4} we have  $\prod_{i =1}^n \alpha_i A \sim \prod_{j =1}^m \beta_j A$, so in particular $\prod_{j =1}^m \beta_j A \releq \prod_{i =1}^n \alpha_i A$. If the inequality holds, by Pareto assumption $\neg(\prod_{j =1}^m \beta_j A \releq \prod_{i =1}^n \alpha_i A )$, which is absurd.
+
+  
+  \item We have $A < \sigma B$, so $A \releq B$, so $\prod_{i =1}^n \alpha_i A \releq \prod_{j =1}^m \beta_j B$ by Lemma~\ref{lem:ano-trans}.\ref{lem:ano-trans3}.
+  
+  \item By Lemma~~\ref{lem:ano-trans}.\ref{lem:ano-trans4} $\prod_{j =1}^m \beta_j A \sim \prod_{i =1}^n \alpha_i A$, so there exists $\sigma \in \mu$ such that either $\prod_{j =1}^m \beta_j A = \sigma \prod_{i =1}^n \alpha_i A$ or $\prod_{j =1}^m \beta_j A < \sigma \prod_{i =1}^n \alpha_i A$, while the second disjunct is ruled out by Lemma~\ref{lem:pareto}.\ref{lem:pareto3}.
+  
+    
+  \item Perhaps not very useful for now.
+
+ \end{enumerate}
+\end{proof}
+\end{lemma}
+
+
+
+
+\begin{lemma}\label{lem:suff-cond}
+\begin{enumerate}
+ \item If $\forall A,B, \sigma, \,\neg(A < \sigma A) \land \neg(A < B < \sigma A)$, then $\releq$ is Pareto.
+  
+ \item If $\forall A \subseteq G, \forall \sigma \in \mu, \exists \tau \in \mu, A = \tau \sigma A$, then $\releq$ is anonymous.
+ 
+ 
+ \item $\releq$ is reflexive iff $\sim$ is reflexive, iff $\forall A \subseteq G, \exists \sigma \in \mu,\, A \leq \sigma A$. 
+ 
+ 
+ \item If the following hold, $\releq$ is transitive.
+ \begin{enumerate}
+  \item $<$ is transitive.
+  
+  \item $\forall A \subseteq G,\forall \sigma, \tau \in \mu,\exists \rho \in \mu,\, \sigma \tau A \leq \rho A$
+ 
+ \item $\forall A,B \subseteq G, \forall \sigma, \tau \in \mu,\, A < \sigma B \Rightarrow \exists \rho \in \mu,\, \tau A \leq \rho B$.
+ \end{enumerate}
+
+ 
+\end{enumerate}
+ 
+\begin{proof}
+\begin{enumerate}
+ \item Let us assume that $A < B$ and $B \releq A$. So there exists $\sigma \in \mu$ such that $B = \sigma A$ or $B < \sigma A$. In both cases, the assumption yields a contradiction.
+ 
+ \item $\sigma A \releq A$ is witnessed by $\sigma$, and $A \releq \sigma A$ is witnessed by the $\tau$ from the assumption.
+ 
+ \item Lemma~\ref{lem:pref-basics}.\ref{lem:pref-basics3}
+ 
+ 
+ \item Let $A \releq B \releq C$, so there exist $\alpha, \beta \in \mu$ such that $A \leq \alpha B$ and $B \leq \beta C$. Let us make a case disjunction. First case, $B = \beta C$, so $\alpha B = \alpha \beta C$. By assumption, let $\rho$ be such that $\alpha \beta C \leq \rho C$, so $A \leq \alpha B \leq \rho C$. By transitivity of $<$, we find $A \leq \rho C$, i.e. $A \releq C$.
+ 
+ Second case, $B < \beta C$, so by assumption let $\rho \in \mu$ be such that $\alpha B \leq \rho C$.
+\end{enumerate}
+\end{proof}
+
+ 
+\end{lemma}
+
+
+
+
+
+
+
+\begin{theorem}
+If $<$ is transitive, the following two conjunctions are equivalent.
+
+\begin{enumerate}
+ \item $\releq$ is a reflexive, transitive, anonymous, and Pareto.
+ 
+ \item For all $A \subseteq G$ and $\sigma \in \mu$ we have
+ 
+ \begin{enumerate}
+  \item $\neg(A < \sigma A)$
+ 
+ \item $\exists \tau \in \mu,\, A = \tau A$
+ 
+ \item $\exists \tau \in \mu, A = \tau \sigma A$
+ 
+ %\item $A < B \Rightarrow \exists \sigma \in \mu, A < \sigma B$
+ 
+ \item $\forall \tau \in \mu,\exists \rho \in \mu,\, \sigma \tau A \leq \rho A$
+ 
+ \item $\forall B \subseteq G, \forall \tau \in \mu,\, A < \sigma B \Rightarrow \exists \rho \in \mu,\, \tau A \leq \rho B$.
+\end{enumerate}
+\end{enumerate}
+
+ \begin{proof}
+ By Lemma~\ref{lem:suff-cond} for the sufficient condition. By Lemmas  
+ \end{proof}
+
+ 
+ 
+\end{theorem}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

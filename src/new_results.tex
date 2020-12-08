@@ -7,6 +7,7 @@
 \usepackage{tikz}
 
 \newcommand{\G}{\mathbb{G}}
+\newcommand{\D}{\mathbb{D}}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
@@ -86,9 +87,11 @@ Adaptation of theorem 1 in \cite{svensson80}:
 
 Adaptation of theorem 1 of \cite{basumitra03}:
 \begin{theorem}
-  Suppose $\kappa$ contains a subset $k$ of $\mathbb G$ such that $\mathbb G\setminus k$ is infinite, $|\mathbb G\setminus k|\geq |k|$ and $\mu$ contains the permutations of size $|k|$.
+  Suppose $\kappa$ contains a subset $k$ of $\G$ such that $\mathbb G\setminus k$ is infinite,
+  $|\mathbb G\setminus k|\geq |k|$ and $\mu$ contains the permutations of size $2|k|$.
 
-  Let $\mathbb S$ be an totally ordered set such as there exists a subset $\mathbb D$ dense in $\mathbb S$ such that $|\mathbb D|\leq |\mathbb G\setminus k|$ and $|\mathbb D|<|\mathbb S|$.
+  Let $\mathbb S$ be an totally ordered set such as there exists a subset $\D$ dense in
+  $\mathbb S$ such that $|\D|\leq |\G\setminus k|$ and $|\D|<|\mathbb S|$.
 
   There is no SWF satisfying $\kappa$-Pareto and $\mu$-anonymity axioms.
 \end{theorem}
@@ -102,23 +105,22 @@ $[W(a(z)),W(b(z))]$ are disjoint and non empty.
 
 \begin{proof}
   We assume that $Y$ contains at least two elements that we identify wlog. to $0$
-  and $1$ (else there is only one possible utility stream).
-
-  Let $\alpha<\beta\in\mathbb S$. Denote by $]\alpha,\beta[$ the set $\{z\in\mathbb S\,|\, \alpha<z<\beta\}$.
+  and $1$ (else there is only one possible utility stream).\par
+  We take $k_1$ and $k_2$ subsets of $\G$ such that $k, k_1$ and $k_2$ are disjoint and
+  of the same cardinality. Such $k_1$ and $k_2$ exist since 
 
   Let:
   \begin{itemize}
   \item $k\in\kappa$ satisfying the conditions
-  \item $s$ be a bijection of $\mathbb G\setminus k$ in $(\mathbb G\setminus k)\times
-        (\mathbb D\,\cap\,]\alpha,\beta[)$
-  \item $\pi_2$ be the projection of $(\mathbb G\setminus k)\times (\mathbb D\,\cap\,]\alpha,\beta[)$
-        in $\mathbb D\,\cap\,]\alpha,\beta[$
-  \item $f=\pi_2\circ s:\mathbb G\setminus k\to\mathbb D\,\cap\,]\alpha,\beta[$
-  \item $E(z)=\{g\in \mathbb G\setminus k\,|\, f(g)<z\}$ for $\alpha<z<\beta$
+  \item $s$ be a bijection of $\G\setminus k$ in $(\G\setminus k)\times\D$
+  \item $\pi_2$ be the projection of $(\G\setminus k)\times \D$
+        in $\mathbb D$
+  \item $f=\pi_2\circ s:\G\setminus k\to\D$
+  \item $E(z)=\{g\in \G\setminus k\,|\, f(g)<z\}$ for $z\in\mathbb S$
   \item $\displaystyle a(z)=\left(\left\{\begin{array}{ll}1&\text{if }g\in
-        E(z)\\0&\text{else}\end{array}\right.\right)_{g\in\mathbb G}$ for $\alpha<z<\beta$
+        E(z)\\0&\text{else}\end{array}\right.\right)_{g\in\G}$ for $z\in \mathbb S$
   \item $\displaystyle b(z)=\left(\left\{\begin{array}{ll}1&\text{if }g\in
-        k\\a(z)&\text{else}\end{array}\right.\right)_{g\in\mathbb G}$ for $\alpha<z<\beta$.
+        k\\a(z)&\text{else}\end{array}\right.\right)_{g\in\G}$ for $z\in \mathbb S$.
   \end{itemize}
 
   Therefore $\forall g\in k, a(z)_g=0$ and $b(z)_g=1$, so $a(z)<_\kappa b(z)$.
@@ -140,7 +142,7 @@ $[W(a(z)),W(b(z))]$ are disjoint and non empty.
     \end{tikzpicture}
   \end{center}
 
-  Let $\alpha<z<z'<\beta$.
+  Let $z<z'$.
 
   We want to show that $W(b(z))<W(a(z'))$.
 
@@ -199,7 +201,7 @@ $[W(a(z)),W(b(z))]$ are disjoint and non empty.
     \end{tikzpicture}
   \end{center}
 
-  Since there is a rational $z<r<z'$,
+  Since there is some $r\in \D$ such that $z<r<z'$,
   \[\forall g\in \mathbb G\setminus k, \pi_2(g,r)\in]z,z'[,\]
   so $|\pi_2^{-1}(]z,z'[)|\geq|G\setminus k|$. And because $s$ is a bijection,
   \[|\pi_2^{-1}(]z,z'[)|=|s^{-1}(\pi_2^{-1}(]z,z'[))|= |f^{-1}(]z,z'[)|.\]

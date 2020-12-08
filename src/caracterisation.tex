@@ -1,6 +1,9 @@
 
 \documentclass[11pt]{article}
 
+\usepackage{color}
+\usepackage[english]{babel}
+\newcommand{\nouveau}[1]{{\small \color{blue} \bf  #1}}
 
 \usepackage{amsmath,amssymb}
 \usepackage{QED}
@@ -49,9 +52,13 @@ Let $G$ be a set, $\kappa$ be a collection of subsets of $G$, and $\mu$ be a col
 \begin{enumerate}
  \item\label{lem:so1} $<$ is irreflexive iff $\neg(\emptyset \in \kappa)$.
  
- \item\label{lem:so2} If $\kappa$ is closed under disjoint union of any two sets, $<$ is transitive.
+% \item\label{lem:so2} If $\kappa$ is closed under disjoint union of any two sets, $<$ is transitive.
  
- \item\label{lem:so3} If $<$ is transitive and $\neg(\emptyset \in \kappa)$, then $\kappa$ is closed under disjoint union of any two sets.
+% \item\label{lem:so3} If $<$ is transitive and $\neg(\emptyset \in \kappa)$, then $\kappa$ is closed under disjoint union of any two sets.
+
+ \item\label{lem:so23} \nouveau{%
+     $<$ is transitive iff $\kappa$ is closed under disjoint union of any two sets.%
+   }
  
  \item\label{lem:so4} $<$ is a strict order iff $\neg(\emptyset \in \kappa)$ and $\kappa$ is closed under disjoint union of any two sets.
 \end{enumerate}
@@ -61,11 +68,35 @@ Let $G$ be a set, $\kappa$ be a collection of subsets of $G$, and $\mu$ be a col
   \item If $\neg(\emptyset \in \kappa)$, for all $A \subseteq G$ we have $\neg(A \setminus A \in \kappa)$, i.e. $\neg(A < A)$. Conversely, if $<$ is irreflexive, $\neg (G < G)$, and $\emptyset = G \setminus G$ is thus not in $\kappa$.
   
    
-  \item Let $A,B,C \in G$ be such that $A < B < C$. So by definition of $<$, we have $A \subseteq B \subseteq C$, and $B \setminus A, C \setminus B \in \kappa$. Since $B \setminus A$ and $C \setminus B$ are disjoint, $C \setminus A = (B \setminus A) \cup (C \setminus B) \in \kappa$.
+%  \item Let $A,B,C \in G$ be such that $A < B < C$. So by definition of $<$, we have $A \subseteq B \subseteq C$, and $B \setminus A, C \setminus B \in \kappa$. Since $B \setminus A$ and $C \setminus B$ are disjoint, $C \setminus A = (B \setminus A) \cup (C \setminus B) \in \kappa$.
   
-  \item Let $A,B \in \kappa$ be disjoint.  On the one hand, $\emptyset < A$ since $A \neq \emptyset$; on the other hand, $A < A \cup B$ since $(A \cup B) \setminus A = B \in \kappa$. So $\emptyset < B$ by transitivity, so $B \in \kappa$.
-  
-  \item By Lemmas~\ref{lem:so}.\ref{lem:so1}, \ref{lem:so}.\ref{lem:so2}, and \ref{lem:so}.\ref{lem:so3}
+%  \item Let $A,B \in \kappa$ be disjoint.  On the one hand, $\emptyset < A$ since $A \neq \emptyset$; on the other hand, $A < A \cup B$ since $(A \cup B) \setminus A = B \in \kappa$. So $\emptyset < B$ by transitivity, so $B \in \kappa$.
+ 
+  \item We first suppose that $\kappa$ is closed under disjoint union
+    of any two sets.  Let $A,B,C \in G$ be such that $A < B < C$. By
+    definition of $<$, $A \subseteq B \subseteq C$, and
+    $B \setminus A, C \setminus B \in \kappa$. Since $B \setminus A$
+    and $C \setminus B$ are disjoint,
+    $C \setminus A = (B \setminus A) \cup (C \setminus B) \in
+    \kappa$. \nouveau{Moreover \(A \subseteq C\), therefore
+      \(A < C\).}
+
+    \nouveau{%
+      We now suppose that \(<\) is transitive. Let \(k_1, k_2\) two
+      disjoint sets in \(\kappa\). Then
+      \(k_1 \setminus \emptyset = k_1 \in \kappa\) and
+      \(\emptyset \subseteq k_1\), so \(\emptyset < k_1\) by
+      definition.  Similarly
+      \(k_1 \cup k_2 \setminus k_1 = k_2 \in \kappa\) and
+      \(k_1 \subseteq k_1 \cup k_2\), so \(k_1 < k_1 \cup k_2\).  By
+      transitivity \(\emptyset < k_1 \cup k_2\), therefore
+      \(k_1 \cup k_2 \setminus \emptyset = k_1 \cup k_2 \in \kappa\).
+    }
+
+ 
+  \item By Lemmas~\ref{lem:so}.\ref{lem:so1}
+    % , \ref{lem:so}.\ref{lem:so2}, and \ref{lem:so}.\ref{lem:so3}
+    \nouveau{and \ref{lem:so}.\ref{lem:so23}}
  \end{enumerate}
 \end{proof}
 \end{lemma}
@@ -84,7 +115,8 @@ For all $A,B \subseteq G$, let $A \releq B$ if there exists $\sigma \in \mu$ suc
 \begin{lemma}\label{lem:pref-basics}
 \begin{enumerate}
 
- \item\label{lem:pref-basics1} If $\mu$ is empty, so is $\releq$. 
+\item\label{lem:pref-basics1} %If $\mu$ is empty, so is $\releq$.
+  \nouveau{ \(\mu\) is empty iff \(\releq\) is empty. }
  
  \item\label{lem:pref-basics2} $\rel$ is irreflexive, and $\sim$ is symmetric.
 
@@ -101,7 +133,10 @@ For all $A,B \subseteq G$, let $A \releq B$ if there exists $\sigma \in \mu$ suc
 
 \begin{proof}
  \begin{enumerate}
- \item Clear.
+ \item \nouveau{%
+     If $\mu$ is empty, so is $\releq$.  If there exists
+     \(\sigma \in \mu\), then \(\emptyset = \sigma \emptyset\) so
+     \(\emptyset \unlhd \emptyset\). }
  
   \item Clear.
   

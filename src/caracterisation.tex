@@ -24,7 +24,7 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\releq}{\mathrel{\trianglelefteq}}
 \newcommand{\rel}{\mathrel{\triangleleft}}
-
+\newcommand{\abs}[1]{\left| #1 \right|}
 
 
 \usepackage{anysize}
@@ -149,7 +149,15 @@ For all $A,B \subseteq G$, let $A \releq B$ if there exists $\sigma \in \mu$ suc
  
  \item It is witnessed by $\sigma$ since $\sigma A = \sigma A$.
  
- \item By symmetry $B \sim A$, so $A \sim A$ by transitivity.
+ \item By symmetry $B \sim A$, so $A \sim A$ by transitivity.\\
+     \nouveau{This doesn't hold: let \(G = \N, A = 4\N\), \(B = 4 \N + 1, \kappa
+         = \{4\N+2, 4\N + 3\}\) and \(\mu = \{\sigma, \sigma'\} \) with
+         \(\sigma\) mapping \(4\N + 1\) to \(2\N\) and  \(\sigma'\) mapping
+         \(4\N\) to \(2\N + 1\). We thus have  \(\sigma B\setminus A = 4\N + 2
+         \in \kappa\) and \(\sigma' A\setminus B = 4 \N + 3 \in \kappa\), so \(A
+         \sim  B\), but \(A\not\subseteq \sigma A\) and \(A \not\subseteq
+         \sigma' A\), so we can't have \(A \sim A\).
+     }
  \end{enumerate}
 \end{proof}
 \end{lemma}
@@ -157,8 +165,15 @@ For all $A,B \subseteq G$, let $A \releq B$ if there exists $\sigma \in \mu$ suc
 
 
 \begin{remark}
-The property $\forall A \subseteq G, \exists \sigma \in \mu,\, A \leq \sigma A$ does not imply $\mathrm{id}_G \in \mu$. TODO give an example.
+The property $\forall A \subseteq G, \exists \sigma \in \mu,\, A \leq \sigma A$
+does not imply $\mathrm{id}_G \in \mu$. \nouveau{Let \(G = \{1,2,3\}, \mu\) and the
+transopsitions. Let \(A\in G\). Then either \(\abs{A} \le 1\) and there exists
+\(\sigma\in \mu\) such that \(\sigma\) only affects elements not in \(A\), or
+\(\abs{A} \ge 2\), so there exists \(\sigma\in \mu\) that only swaps two
+elements of A. In both cases, the introduced permutation verifies \(A \le \sigma
+A\). }
 \end{remark}
+
 
 
 \begin{definition}

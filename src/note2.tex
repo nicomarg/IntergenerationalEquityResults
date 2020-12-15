@@ -1,0 +1,88 @@
+
+\documentclass[11pt]{article}
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{QED}
+
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{observation}[definition]{Observation}
+\newtheorem{claim}[definition]{Claim}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\releq}{\mathrel{\trianglelefteq}}
+\newcommand{\rel}{\mathrel{\triangleleft}}
+
+
+
+\usepackage{anysize}
+\marginsize{2.5cm}{2.5cm}{2.5cm}{2.5cm}
+
+\pagestyle{plain}
+
+
+\title{An abstract generalization of Basu-Mitra... (DRAFT)}
+
+\begin{document}
+\maketitle
+
+
+Let $G$ be a set, $\kappa$ be a collection of subsets of $G$, and $\mu$ be a collection of permutations of $G$.
+
+\begin{theorem}
+Let $k$, $k_1$, $k_2$ be subsets of $G$ that are pairwise disjoint and have
+the same cardinality. Let us assume that $k \in \kappa$ and that for all $i \in
+\{1,2\}$, for all $k_i' \subsetneq k_i$, every permutation $\sigma$ that swaps $k$
+and $k_i'$ and fixes the rest is in $\mu$. Let $(S,<_S)$ be a totally ordered set and $D \subseteq S$ be a dense subset wrt $<_S$ such that $|D| < |S|$. Let us assume that $|D| \leq |G|$. Then there is no $\kappa$-Pareto $\mu$-anonymous SWF function of type $\{0,1\}^G \to S$  
+ 
+\end{theorem}
+
+\begin{proof}
+Let $s_1$ be a bijection from $k_1$ to $k_1 \times D$, let $p_1$ be the projection from $k_1 \times D$ onto $D$. Let $f1 := s1 \circ p1$. For all $z \in S$ let $E_1(z) := \{g \in k_1 \mid f_1(g) <_S z\}$. Let $s_2$, $p_2$, $f_2$, and $E_2$ be defined similarly.
+
+For all $z \in S$ let $E(z) := E1(z) \cup E2(z)$. Let $a(z)$ and $b(z)$ be defined as before. %Let $f := f_1 \cup f_2$, i.e. $f : k_1 \cup k_2 -> D$ such that $f|k_1 = f_1$ and $f|k_2 = f_2$. 
+Let $z,z' \in S$ such that $z <_S z'$. By density assumption let $r \in D \cap ]z,z'[$.
+
+For all $g \in k_1$ we have  $p_1(g,r) \in ]z,z'[$, i.e. $p1(k_1,r) \subseteq ]z,z'[$, so $|p_1^{-1}(]z,z'[)| \geq |k_1|$. Since $s_1$ is a bijection we also have $f_1^{-1}(]z,z'[)| \geq |k_1|$. By definition of $E_1$, we have $f_1^{-1}(]z,z'[) \subseteq E_1(z') \setminus E_1(z) \subseteq k_1$. So $|E_1(z') \setminus E_1(z)| = |k_1|$.
+
+
+
+
+\end{proof}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

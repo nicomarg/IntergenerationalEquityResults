@@ -185,7 +185,7 @@ A\). }
 \begin{enumerate}
  \item\label{lem:ano-trans1} If $\releq$ is anonymous, $A \sim \sigma^{-1}A$ for all $A \subseteq G$ and $\sigma \in \mu$
 
- \item\label{lem:ano-trans2} If $\rel$ is anonymous and transitive, it is also reflexive iff $\mu$ is non-empty.  
+ \item\label{lem:ano-trans2} If $\releq$ is anonymous and transitive, it is also reflexive iff $\mu$ is non-empty.  
  
   \item\label{lem:ano-trans3} Anonymity and transitivity of $\releq$ implies that for all $A, B \subseteq G$ and $\alpha_1,\dots,\alpha_n,\beta_1,\dots, \beta_m \in \mu \cup \mu^{-1}$ (where $\mu^{-1} := \{\sigma^{-1} \mid \sigma \in \mu\}$), if $A \releq B$ then $\prod_{i =1}^n \alpha_i A \releq \prod_{j =1}^m \beta_j B$.
  
@@ -197,7 +197,7 @@ A\). }
 \begin{enumerate}
  \item By applying anonymity to $\sigma^{-1}A$ and $\sigma$, we obtain $\sigma^{-1}A \sim \sigma \sigma^{-1}A$, so $\sigma^{-1}A \sim A$.
  
- \item If $\releq$ is reflexive, it is non empty, and so is $\mu$ by Lemma~\ref{lem:pref-basics}.\ref{lem:pref-basics1}. Conversely, let $\sigma \in \mu$, so $A \sim \sigma A$ by anonymity, $\sigma \sim \sigma A$ by symmetry (Lemma~\ref{lem:pref-basics}.\ref{lem:pref-basics2}), and $A \sim A$ by transitivity.
+ \item If $\releq$ is reflexive, it is non empty, and so is $\mu$ by Lemma~\ref{lem:pref-basics}.\ref{lem:pref-basics1}. Conversely, let $\sigma \in \mu$, so $A \sim \sigma A$ by anonymity, $\sigma A \sim A$ by symmetry (Lemma~\ref{lem:pref-basics}.\ref{lem:pref-basics2}), and $A \sim A$ by transitivity.
  
  \item By assumption $A \releq B$. By anonymity $B \sim \sigma B$, so $A \releq \sigma B$ by transitivity. By Lemma~\ref{lem:ano-trans}.\ref{lem:ano-trans2} $B \sim \sigma^{-1} B$, so $A \releq \sigma^{-1} B$ by transitivity. Likewise $\sigma A \releq B$ and $\sigma^{-1} A \releq B$. The claim follows by recurrence on $n+m$. 
  
@@ -210,7 +210,7 @@ A\). }
 
 
 \begin{definition}
-$\releq$ is said to be Pareto if $A < B \,\Rightarrow\, \neg (B \releq A)$. 
+$\releq$ is said to be Pareto if $A < B \,\Rightarrow\,(B \releq A)$. 
 \end{definition}
 
 

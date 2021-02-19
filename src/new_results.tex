@@ -70,7 +70,7 @@ Adaptation of theorem 1 in \cite{svensson80}:
 \begin{proof}
     \textbf{Reflexivity}: we can take $\sigma = Id\in\mu$ since $\mu$ is a
     subgroup of $\mathfrak{S}_\G$.\\
-    \textbf{Transitivity}: if $x,y,z\in X$ such that $x \precsim_{\kappa\mu} y$ and 
+    \textbf{Transitivity}: if $x,y,z\in X$ such that $x \precsim_{\kappa\mu} y$ and
     $y \precsim_{\kappa\mu} z$,
     we take $\sigma,\sigma'\in \mu$ such that $x\leq_\kappa \sigma y$ and
     $y\leq_\kappa \sigma' z$. We have $x\leq_\kappa (\sigma\circ\sigma')z$,
@@ -80,11 +80,38 @@ Adaptation of theorem 1 in \cite{svensson80}:
     therefore $x \precsim_{\kappa,\mu} \sigma x$. On the other hand,
     $\sigma x \leq_{\kappa}\sigma x$, hence $x \sim_{\kappa, \mu}\sigma x$.\\
     \textbf{$\kappa$-Pareto}: if we have $x,y\in X$ with $x<_\kappa y$, is there a
-    $\sigma\in \mu\mathfrak{S}_\G$ such that $y\leq_\kappa \sigma x$? 
+    $\sigma\in \mu\mathfrak{S}_\G$ such that $y\leq_\kappa \sigma x$?
 \end{proof}
 
 \section{Existence of SWF}
 
+\begin{theorem}
+  Suppose $\kappa$ contains only finite subsets of $\G$, and $\mu$ contains only permutation
+  with finite support. Suppose $X=\mathbb Q^{\mathbb N}$.
+
+  Then there exists a SWF $W:X\to\mathbb R$ which is $\kappa$-Pareto and $\mu$-anonymous.
+\end{theorem}
+
+\begin{proof}
+  Define the relation $\preceq$ on $X$ by $a\preceq b$ iff exists $n\in\mathbb N^*$, $c_1,...,c_n\in X$ and
+  $\sigma_1,...,\sigma_{2n-2}\in\mu$ such that $a=c_1$, $b=c_n$ and $\forall 1\leq i\leq n-1, \sigma_{2i-1}(c_i)<_\kappa\sigma_{2i}(c_{i+1})$.
+
+  $\preceq$ is a reflexive by taking $n=1$ and transitive thanks to its chain form,
+  so it is a preorder. \medskip
+
+  Define the relation $\sim$ on $X$ by $a\sim b$ iff exists $n\in\mathbb N^*$ and $c_1,...,c_n\in X$
+  such that $a=c_1$, $b=c_n$ and $\forall 1\leq i\leq n-1, c_i\preceq c_{i+1}$ or $c_{i+1}\preceq c_i$.
+
+  $\sim$ is somehow the smallest equivalence relation containing $\preceq$.
+
+  Denote by $\tilde{a}$ the equivalence class of $a$. \medskip
+
+  Let $a\in X$. Let $A_n$ be the set of elements that are related to $a$ at distance
+  $n$, i.e. $A_n=\{b\,|\, \exists c_1,...,c_n\in X, \sigma_1,...,\sigma_{2n-2}\in\mu, a=c_1 \wedge b=c_n \wedge \forall 1\leq i\leq n-1, \left(\sigma_{2i-1}(c_i)<_\kappa\sigma_{2i}(c_{i+1}) \vee \sigma_{2i}(c_{i+1})<_\kappa\sigma_{2i-1}(c_i)\right)\}$.
+\end{proof}
+
+
+\medskip
 Adaptation of theorem 1 of \cite{basumitra03}:
 \begin{theorem}
   Suppose $\kappa$ contains a subset $k$ of $\G$ such that $\mathbb G\setminus k$ is infinite,

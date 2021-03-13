@@ -8,6 +8,8 @@ pdf/
 *.fls
 *.log
 *.pdf
+*.dvi
+*.ps
 *.synctex.gz
 *.prv
 *.fmt
